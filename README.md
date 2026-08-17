@@ -4,9 +4,13 @@
 **Domain:** Full Stack Web Development (MERN)  
 **Internship Duration:** 20th August 2026 - 20th September 2026  
 
+## Links & Deployment
+
+- **GitHub Repository:** [https://github.com/Rahulbariki/CodeAlpha_SocialMediaPlatform](https://github.com/Rahulbariki/CodeAlpha_SocialMediaPlatform)
+- **Live Vercel Deployment:** [https://client-seven-eta-4hs2xbhbtk.vercel.app](https://client-seven-eta-4hs2xbhbtk.vercel.app)
+
 ---
 
-## Overview
 
 **AlphaPulse** is a modern, high-performance Social Media Platform built with the **MERN** stack (MongoDB, Express.js, React + Vite, Node.js). It enables users to create profiles, publish rich discussions with media attachments, interact through like toggles and comments, follow other creators, and discover trending topics across a responsive interface.
 
