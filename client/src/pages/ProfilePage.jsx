@@ -43,7 +43,8 @@ export default function ProfilePage() {
 
       // Fetch posts by this user
       const feedRes = await API.get('/posts/feed?explore=true');
-      const filteredPosts = feedRes.data.filter(
+      const allPosts = Array.isArray(feedRes.data) ? feedRes.data : [];
+      const filteredPosts = allPosts.filter(
         (p) => String(p.author?._id) === String(data._id) || p.author?.username === data.username
       );
       setUserPosts(filteredPosts);
@@ -51,10 +52,12 @@ export default function ProfilePage() {
       // If own profile, fetch saved posts
       if (currentUser && String(currentUser._id) === String(data._id)) {
         const savedRes = await API.get('/posts/feed?saved=true');
-        setSavedPosts(savedRes.data);
+        setSavedPosts(Array.isArray(savedRes.data) ? savedRes.data : []);
       }
     } catch (error) {
       console.error('Failed to load user profile:', error);
+      setUserPosts([]);
+      setSavedPosts([]);
     } finally {
       setLoading(false);
     }

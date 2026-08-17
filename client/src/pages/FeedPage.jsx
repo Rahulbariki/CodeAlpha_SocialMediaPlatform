@@ -74,9 +74,10 @@ export default function FeedPage({ onOpenCreateModal, lastCreatedPost }) {
       if (selectedTag) url += `tag=${encodeURIComponent(selectedTag)}&`;
 
       const { data } = await API.get(url);
-      setPosts(data);
+      setPosts(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Failed to fetch feed posts:', error);
+      setPosts([]);
     } finally {
       setLoading(false);
     }
@@ -85,9 +86,10 @@ export default function FeedPage({ onOpenCreateModal, lastCreatedPost }) {
   const fetchSuggestedUsers = async () => {
     try {
       const { data } = await API.get('/users/suggested');
-      setSuggestedUsers(data);
+      setSuggestedUsers(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Failed to fetch suggestions:', error);
+      setSuggestedUsers([]);
     }
   };
 
